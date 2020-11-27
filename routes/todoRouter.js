@@ -13,7 +13,7 @@ router.post('/', auth, async (req, res) => {
 
     const newTodo = new Todo({
       title,
-      userId: auth.user,
+      userId: req.user,
     });
     const savedTodo = await newTodo.save();
     res.json(savedTodo);
